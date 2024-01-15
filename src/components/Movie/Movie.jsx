@@ -13,7 +13,7 @@ export default function Movie({ image, name, rating, handlePlayMovie }) {
       <CardMedia
         component="img"
         alt="Movie"
-        height="530"
+        height="750"
         image={`/images/${image}`}
       />
       <CardContent sx={styles.cardContent}>

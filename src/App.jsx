@@ -2,6 +2,7 @@ import "./App.css";
 import { Grid } from "@mui/material";
 import Movie from "./components/Movie/Movie";
 import { Fragment, useState } from "react";
+import { BackgroundMainPage } from "./components/BackgroundMainPage";
 
 const movies = [
   {
@@ -54,7 +55,9 @@ function App() {
   return !videoSrc ? (
 
     <div>
-      <h1 style={{fontFamily:"Bradley Hand, cursive"}}>HOME CINEMA</h1>
+      <BackgroundMainPage/>
+      {/* <br/><br/><br/><br/><br/><br /><br /> */}
+      {/* <h1 style={{fontFamily:"Bradley Hand, cursive"}}>HOME CINEMA</h1> */}
       <Grid sx={{ padding: "5vh" }} container spacing={10}>
         {movies.map((movie) => (
           <Grid key={movie.name} item md={4} sm={6} xs={12}>
