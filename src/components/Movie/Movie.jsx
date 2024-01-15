@@ -9,7 +9,7 @@ import styles from "./Movie.style";
 
 export default function Movie({ image, name, rating, handlePlayMovie }) {
   return (
-    <Card sx={{ minWidth: 350, backgroundColor:"#176B87"}}>
+    <Card sx={{ minWidth: 350, backgroundColor:"#27374D"}}>
       <CardMedia
         component="img"
         alt="Movie"
@@ -17,10 +17,10 @@ export default function Movie({ image, name, rating, handlePlayMovie }) {
         image={`/images/${image}`}
       />
       <CardContent sx={styles.cardContent}>
-        <Typography variant="h5" sx={{color:"#EEF5FF"}}>{name}</Typography>
+        <Typography variant="h5" sx={{color:"#DDE6ED"}}>{name}</Typography>
       </CardContent>
       <CardActions>
-        <Button sx={{ width: "70%", color:"#86B6F6" }} size="medium" onClick={handlePlayMovie}>
+        <Button sx={{ width: "70%", color:"#9DB2BF", fontSize:15}} size="medium" onClick={handlePlayMovie}>
           Play Trailer
         </Button>
         <Grid container>
@@ -28,7 +28,7 @@ export default function Movie({ image, name, rating, handlePlayMovie }) {
             <Rating name="read-only" value={rating} precision={0.5} readOnly />
           </Grid>
           <Grid item xs={1}>
-            <Typography sx={{color:"#B4D4FF"}}>{rating}</Typography>
+            <Typography sx={{color:"#9DB2BF", fontSize:18}}>{rating}</Typography>
           </Grid>
         </Grid>
       </CardActions>
