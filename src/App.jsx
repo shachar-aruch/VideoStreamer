@@ -22,28 +22,28 @@ const movies = [
   {
     image: "Barbie.jpg",
     name: "Barbie",
-    rating: 3,
+    rating: 5,
     video: "videos/Barbie Trailer.mp4",
     coverImage:"images/Barbie cover.jpg"
   },
   {
     image: "Spider Man Homecoming.jpg",
     name: "Spider Homecoming",
-    rating: 2,
+    rating: 4,
     video: "videos/spider homecoming Trailer.mp4",
     coverImage:"images/Spider Homecoming cover.jpg"
   },
   {
     image: "The incerdlibles.jpg",
     name: "The incerdlibles",
-    rating: 2,
+    rating: 5,
     video: "videos/The incerdibles Trailer.mp4",
     coverImage:"images/The incredlibles cover.jpg"
   },
   {
     image: "The Wolf of Wall Street.jpg",
     name: "The Wolf of Wall Street",
-    rating: 2,
+    rating: 4.5,
     video: "videos/The Wolf of Wall Street Trailer.mp4",
     coverImage:"images/The Wolf of Wall Street cover.jpg"
   }
@@ -58,9 +58,9 @@ function App() {
       <BackgroundMainPage/>
       {/* <br/><br/><br/><br/><br/><br /><br /> */}
       {/* <h1 style={{fontFamily:"Bradley Hand, cursive"}}>HOME CINEMA</h1> */}
-      <Grid sx={{ padding: "5vh" }} container spacing={10}>
+      <Grid sx={{ padding: "5vh" }} container spacing={3}>
         {movies.map((movie) => (
-          <Grid key={movie.name} item md={4} sm={6} xs={12}>
+          <Grid key={movie.name} item md={2} sm={6} xs={12}>
             <Movie
               image={movie.image}
               name={movie.name}
