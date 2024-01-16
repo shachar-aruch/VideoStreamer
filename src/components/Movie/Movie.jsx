@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { Box, Grid, Rating } from "@mui/material";
 import styles from "./Movie.style";
 
-export default function Movie({ image, name, rating, handlePlayMovie }) {
+export default function Movie({ image, name, rating, handleButtonPlayMovie }) {
   return (
     <Card
       raised
@@ -34,7 +34,7 @@ export default function Movie({ image, name, rating, handlePlayMovie }) {
             <Button
               sx={{ color: "#9DB2BF", fontSize: 12, fontWeight: "bold" }}
               size="medium"
-              onClick={handlePlayMovie}
+              onClick={handleButtonPlayMovie}
             >
               Play Trailer
             </Button>
