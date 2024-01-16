@@ -1,5 +1,5 @@
 import "./App.css";
-import { Grid } from "@mui/material";
+import { Grid, duration } from "@mui/material";
 import Movie from "./components/Movie/Movie";
 import { Fragment, useState } from "react";
 import { BackgroundMainPage } from "./components/BackgroundMainPage";
@@ -7,7 +7,7 @@ import { TrailerPage } from "./pages/TrailerPage";
 
 const movies = [
   {
-    id:1,
+    id: 1,
     image: "oppenheimer.jpg",
     name: "oppenheimer",
     rating: 4.5,
@@ -19,7 +19,7 @@ const movies = [
     genre: ["Biography", "Drama", "History"],
   },
   {
-    id:2,
+    id: 2,
     image: "Avengers Endgame.jpg",
     name: "Avengers Endgame",
     rating: 4.5,
@@ -31,7 +31,7 @@ const movies = [
     genre: ["Adventure", "Action", "Drama"],
   },
   {
-    id:3,
+    id: 3,
     image: "Barbie.jpg",
     name: "Barbie",
     rating: 5,
@@ -43,7 +43,7 @@ const movies = [
     genre: ["Adventure", "Comedy", "Fantasy"],
   },
   {
-    id:4,
+    id: 4,
     image: "Spider Man Homecoming.jpg",
     name: "Spider Homecoming",
     rating: 4,
@@ -55,7 +55,7 @@ const movies = [
     genre: ["Adventure", "Action", "Sci-Fi"],
   },
   {
-    id:5,
+    id: 5,
     image: "The incerdlibles.jpg",
     name: "The incerdlibles",
     rating: 5,
@@ -67,7 +67,7 @@ const movies = [
     genre: ["Adventure", "Action", "Animation"],
   },
   {
-    id:6,
+    id: 6,
     image: "The Wolf of Wall Street.jpg",
     name: "The Wolf of Wall Street",
     rating: 4.5,
@@ -81,13 +81,23 @@ const movies = [
 ];
 
 function App() {
-  const [videoSrc, setVideoSrc] = useState("");
+  const emptyInfoMovie = {
+    id: 0,
+    image: "",
+    name: "",
+    rating: 0,
+    video: "",
+    coverImage: "",
+    storyline: "",
+    duration: "",
+    genre: [],
+  };
+  const [infoMovie, setinfoMovie] = useState(emptyInfoMovie);
 
-  return !videoSrc ? (
+  return !infoMovie.video ? (
     <div>
       <BackgroundMainPage />
-      {/* <br/><br/><br/><br/><br/><br /><br /> */}
-      {/* <h1 style={{fontFamily:"Bradley Hand, cursive"}}>HOME CINEMA</h1> */}
+
       <Grid sx={{ padding: "5vh" }} container spacing={3}>
         {movies.map((movie) => (
           <Grid key={movie.name} item md={2} sm={6} xs={12}>
@@ -95,7 +105,18 @@ function App() {
               image={movie.image}
               name={movie.name}
               rating={movie.rating}
-              handlePlayMovie={() => setVideoSrc(movie.video)}
+              handleButtonPlayMovie={() =>
+                setinfoMovie({
+                  id: movie.id,
+                  name: movie.name,
+                  rating: movie.rating,
+                  video: movie.video,
+                  coverImage: movie.coverImage,
+                  storyline: movie.storyline,
+                  duration: movie.duration,
+                  genre: movie.genre,
+                })
+              }
             />
           </Grid>
         ))}
@@ -103,16 +124,21 @@ function App() {
     </div>
   ) : (
     <div>
-      {/* <Fragment key={videoSrc}>
-        <video width="600px" controls>
-          <source src={videoSrc} type="video/mp4" />
-        </video>
-      </Fragment>
-      <br/> */}
 
-      <TrailerPage video={videoSrc} />
+      <TrailerPage
+        id={infoMovie.id}
+        name={infoMovie.name}
+        rating={infoMovie.rating}
+        video={infoMovie.video}
+        coverImage={infoMovie.coverImage}
+        storyline={infoMovie.storyline}
+        duration={infoMovie.duration}
+        genre={infoMovie.genre}
+      />
 
-      <button onClick={() => setVideoSrc("")}>Go Back</button>
+      <button onClick={() => setinfoMovie({ ...infoMovie, video: "" })}>
+        Go Back
+      </button>
     </div>
   );
 }
